@@ -1,6 +1,10 @@
 # 🎯 RandomSpin (Lucky Draw / Winner Picker)
 
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)](https://vercel.com/md-nahidhassans-projects/random_spin)
+
 A highly interactive, visually stunning, and dynamic **Random Winner Picker** web application built with pure Vanilla JavaScript, HTML5, and CSS3. 
+
+**🔗 Live Dashboard / Demo:** [Visit on Vercel](https://vercel.com/md-nahidhassans-projects/random_spin)
 
 This project features a breathtaking live galaxy background, glassmorphism UI, a mathematically accurate spinning wheel, and local storage state persistence.
 
