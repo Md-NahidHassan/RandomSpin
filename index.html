@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎯 Random Winner Picker</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <!-- Using Google Fonts for Premium Look -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Floating Galaxy Live Background -->
+  <div id="particles-bg"></div>
+  <canvas id="galaxy-canvas"></canvas>
+
+  <div class="app-container">
+    
+    <!-- 1. TOP HEADER -->
+    <header class="header text-center glow-text">
+      <h1>🎯 RANDOM WINNER PICKER</h1>
+      <p class="subtitle">Add participants and spin the wheel to select a winner</p>
+      <div class="status-indicator">
+        <span class="badge badge-blue">Participants: <span id="participant-count-badge">0</span></span>
+        <span class="badge badge-pink">Winners: <span id="winner-count-badge">0</span></span>
+      </div>
+    </header>
+
+    <main class="main-layout">
+      
+      <!-- 2. LEFT SIDEBAR — PARTICIPANT INPUT -->
+      <aside class="sidebar glass-panel left-sidebar">
+        <div class="sidebar-header">
+          <h2>👥 Participants</h2>
+          <span class="count" id="participant-count">0</span>
+        </div>
+        
+        <div class="input-group">
+          <input type="text" id="participant-input" placeholder="Enter participant name..." autocomplete="off">
+          <button id="add-btn" class="btn btn-primary">ADD</button>
+        </div>
+
+        <div class="list-container">
+          <ul id="participant-list" class="participant-list">
+            <!-- Dynamically populated -->
+          </ul>
+        </div>
+
+        <button id="clear-participants-btn" class="btn btn-danger btn-full mt-auto">CLEAR ALL</button>
+      </aside>
+
+      <!-- 3. CENTER — SPIN WHEEL -->
+      <section class="center-stage">
+        <div class="wheel-wrapper">
+          <div class="wheel-pointer"></div>
+          <canvas id="wheel-canvas" width="500" height="500"></canvas>
+          <button id="spin-btn" class="spin-btn">SPIN</button>
+        </div>
+      </section>
+
+      <!-- 5. RIGHT SIDEBAR — WINNER LIST -->
+      <aside class="sidebar glass-panel right-sidebar">
+        <div class="sidebar-header">
+          <h2 class="text-gold">🏆 Winners</h2>
+          <span class="count" id="winner-count">0</span>
+        </div>
+
+        <div class="list-container">
+          <ul id="winner-list" class="winner-list">
+            <!-- Dynamically populated -->
+          </ul>
+        </div>
+
+        <button id="clear-winners-btn" class="btn btn-danger btn-full mt-auto">CLEAR WINNERS</button>
+      </aside>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      BUILT BY NAHID
+    </footer>
+  </div>
+
+  <!-- Winner Modal -->
+  <div id="winner-modal" class="modal-overlay hidden">
+    <div class="modal glass-panel">
+      <div class="modal-icon">🏆</div>
+      <h2 class="modal-title">WINNER!</h2>
+      <div id="winner-name" class="winner-name-display text-gradient">Winner Name</div>
+      <p class="modal-subtitle">Congratulations!</p>
+      <div class="auto-remove-notice">Removed from active pool</div>
+      <button id="continue-btn" class="btn btn-primary btn-large">CONTINUE</button>
+    </div>
+  </div>
+
+  <!-- All Winners Selected Modal -->
+  <div id="finish-modal" class="modal-overlay hidden">
+    <div class="modal glass-panel finish-modal">
+      <div class="modal-icon">🎉</div>
+      <h2 class="modal-title">ALL WINNERS SELECTED!</h2>
+      <div class="stats-box">
+        <p>Total Participants: <span id="final-total-participants">0</span></p>
+        <p>Total Winners: <span id="final-total-winners">0</span></p>
+      </div>
+      <ul id="final-winners-list" class="final-winners-list custom-scrollbar"></ul>
+      <div class="modal-actions">
+        <button id="new-game-btn" class="btn btn-primary">START NEW GAME</button>
+        <button id="reset-everything-btn" class="btn btn-danger">CLEAR EVERYTHING</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
